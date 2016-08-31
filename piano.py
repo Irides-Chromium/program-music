@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+# URL: https://musescore.com/user/204596/scores/204751
 import os
 from time import sleep
 import gi
@@ -79,7 +79,7 @@ def play_track(track):
     player.add(audiosink)
     source.link(audioconv)
     audioconv.link(audiosink)
-    source.set_property("wave", 1)
+    source.set_property("wave", 3)
     player.set_state(Gst.State.PLAYING)
 
     for key, tick in track:
@@ -91,7 +91,7 @@ def play_track(track):
         else:
             source.set_property("wave", 4) # Silence
             sleep(tick * timing)
-            source.set_property("wave", 1)
+            source.set_property("wave", 3)
     player.set_state(Gst.State.NULL)
 
 def play_tracks(tracks):
